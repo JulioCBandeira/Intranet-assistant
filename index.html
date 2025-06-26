@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Intranet</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Ícones Lucide (via CDN) -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="container">
+    <aside class="sidebar" id="sidebar">
+      <div class="logo">LOGO</div>
+      <ul class="menu">
+        <li><i data-lucide="search"></i><span class="label">Pesquisa</span></li>
+        <li><i data-lucide="file-text"></i><span class="label">Postagens</span></li>
+        <li><i data-lucide="folder"></i><span class="label">Documentos</span></li>
+        <li><i data-lucide="cake"></i><span class="label">Aniversariantes</span></li>
+        <li><i data-lucide="info"></i><span class="label">Sobre a Empresa</span></li>
+      </ul>
+      <button id="toggleSidebar" class="toggle-btn"><i data-lucide="chevrons-left"></i></button>
+    </aside>
+
+    <main class="main-content">
+      <header class="header">
+        <div class="profile-pic">Foto</div>
+        <div class="greeting">
+          <strong>Olá, Julio!</strong>
+          <p>Data - Local - Previsão do tempo</p>
+        </div>
+      </header>
+
+      <section class="carousel">
+        <h1>Carrossel de notícias</h1>
+      </section>
+
+      <section class="bottom-section">
+        <div class="news">
+          <h2>Últimas Notícias</h2>
+          <div class="news-item">
+            <div class="news-img"></div>
+            <div>
+              <strong>Título</strong>
+              <p>Breve descrição</p>
+            </div>
+          </div>
+          <div class="news-item">
+            <div class="news-img"></div>
+            <div>
+              <strong>Título</strong>
+              <p>Breve descrição</p>
+            </div>
+          </div>
+        </div>
+        <div class="birthdays">
+          <h2>Aniversariantes</h2>
+          <div class="birthday-box"></div>
+          <div class="birthday-box"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script>
+    lucide.createIcons();
+
+    const toggle = document.getElementById("toggleSidebar");
+    const sidebar = document.getElementById("sidebar");
+    toggle.addEventListener("click", () => {
+      sidebar.classList.toggle("collapsed");
+    });
+  </script>
+</body>
+</html>
