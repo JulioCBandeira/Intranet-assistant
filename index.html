@@ -2,74 +2,97 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Intranet</title>
-  <link rel="stylesheet" href="style.css" />
-  <!-- Ícones Lucide (via CDN) -->
-  <script src="https://unpkg.com/lucide@latest"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .sidebar:hover .label {
+      display: inline;
+    }
+    .label {
+      display: none;
+    }
+  </style>
 </head>
-<body>
-  <div class="container">
-    <aside class="sidebar" id="sidebar">
-      <div class="logo">LOGO</div>
-      <ul class="menu">
-        <li><i data-lucide="search"></i><span class="label">Pesquisa</span></li>
-        <li><i data-lucide="file-text"></i><span class="label">Postagens</span></li>
-        <li><i data-lucide="folder"></i><span class="label">Documentos</span></li>
-        <li><i data-lucide="cake"></i><span class="label">Aniversariantes</span></li>
-        <li><i data-lucide="info"></i><span class="label">Sobre a Empresa</span></li>
-      </ul>
-      <button id="toggleSidebar" class="toggle-btn"><i data-lucide="chevrons-left"></i></button>
-    </aside>
+<body class="bg-gray-200 text-black">
+  <div class="flex">
 
-    <main class="main-content">
-      <header class="header">
-        <div class="profile-pic">Foto</div>
-        <div class="greeting">
-          <strong>Olá, Julio!</strong>
+    <!-- Sidebar -->
+    <div id="sidebar" class="sidebar w-16 hover:w-60 transition-all duration-300 bg-gray-900 min-h-screen text-white flex flex-col items-center relative">
+      <!-- Logo -->
+      <div class="flex items-center justify-center h-16 w-full px-2">
+        <span class="text-xl font-bold label">LOGO</span>
+        <img src="icons/logo-icon.svg" alt="Logo" class="w-6 h-6" />
+      </div>
+
+      <!-- Navigation -->
+      <nav class="flex flex-col gap-4 p-2 w-full">
+        <a href="#" class="flex items-center gap-3 hover:bg-indigo-600 p-2 rounded">
+          <img src="icons/search.svg" class="w-5 h-5" />
+          <span class="label">Pesquisa</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 hover:bg-indigo-600 p-2 rounded">
+          <img src="icons/postagens.svg" class="w-5 h-5" />
+          <span class="label">Postagens</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 hover:bg-indigo-600 p-2 rounded">
+          <img src="icons/documentos.svg" class="w-5 h-5" />
+          <span class="label">Documentos</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 hover:bg-indigo-600 p-2 rounded">
+          <img src="icons/aniversariantes.svg" class="w-5 h-5" />
+          <span class="label">Aniversariantes</span>
+        </a>
+        <a href="#" class="flex items-center gap-3 hover:bg-indigo-600 p-2 rounded mt-auto">
+          <img src="icons/sobre.svg" class="w-5 h-5" />
+          <span class="label">Sobre a Empresa</span>
+        </a>
+      </nav>
+    </div>
+
+    <!-- Conteúdo principal -->
+    <div class="flex-1 p-6">
+      <!-- Saudação -->
+      <div class="flex items-center gap-4 mb-6">
+        <div class="w-16 h-16 bg-gray-400 rounded-full flex items-center justify-center">Foto</div>
+        <div>
+          <p class="font-bold">Olá, Julio!</p>
           <p>Data - Local - Previsão do tempo</p>
         </div>
-      </header>
+      </div>
 
-      <section class="carousel">
-        <h1>Carrossel de notícias</h1>
-      </section>
+      <!-- Carrossel -->
+      <div class="bg-red-600 text-white font-bold text-xl text-center py-8 rounded mb-6">
+        Carrossel de notícias
+      </div>
 
-      <section class="bottom-section">
-        <div class="news">
-          <h2>Últimas Notícias</h2>
-          <div class="news-item">
-            <div class="news-img"></div>
+      <!-- Notícias e Aniversariantes -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <h2 class="text-2xl font-bold mb-4">Últimas Notícias</h2>
+          <div class="flex items-start gap-4 mb-4">
+            <div class="w-12 h-12 bg-red-600 rounded"></div>
             <div>
-              <strong>Título</strong>
+              <p class="font-bold">Título</p>
               <p>Breve descrição</p>
             </div>
           </div>
-          <div class="news-item">
-            <div class="news-img"></div>
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 bg-red-600 rounded"></div>
             <div>
-              <strong>Título</strong>
+              <p class="font-bold">Título</p>
               <p>Breve descrição</p>
             </div>
           </div>
         </div>
-        <div class="birthdays">
-          <h2>Aniversariantes</h2>
-          <div class="birthday-box"></div>
-          <div class="birthday-box"></div>
+
+        <div>
+          <h2 class="text-2xl font-bold mb-4">Aniversariantes</h2>
+          <div class="w-32 h-40 bg-red-600 rounded mb-4"></div>
+          <div class="w-32 h-40 bg-red-600 rounded"></div>
         </div>
-      </section>
-    </main>
+      </div>
+    </div>
   </div>
-
-  <script>
-    lucide.createIcons();
-
-    const toggle = document.getElementById("toggleSidebar");
-    const sidebar = document.getElementById("sidebar");
-    toggle.addEventListener("click", () => {
-      sidebar.classList.toggle("collapsed");
-    });
-  </script>
 </body>
 </html>
